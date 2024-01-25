@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do</title>
+  </head>
+  <body>
+    <h1>Shopping List</h1>
+    <ol>
+      <% for (let item of items){ %>
+      <li><%= item.name%> - $<%= item.price %></li>
+      <button><a href="/editItem/<%= item._id %>">Edit</a></button>
+      <form action="/todo/<%= item._id %>?_method=DELETE" method="POST">
+        <button>Delete</button>
+      </form>
+      <% }%>
+    </ol>
+    <button><a href="http://localhost:3000/additem">+Add Item</a></button>
+  </body>
+</html>
